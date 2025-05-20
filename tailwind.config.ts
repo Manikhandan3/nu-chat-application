@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
     darkMode: ["class"],
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,6 +9,11 @@ export default {
   ],
   theme: {
   	extend: {
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -51,8 +56,6 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
-		// Other objects...
-
 		backgroundColor: {
 			container: "hsl(var(--container))",
 			"gray-primary": "hsl(var(--gray-primary))",
@@ -67,13 +70,9 @@ export default {
 		backgroundImage: {
 			"chat-tile-light": "url('/bg-light.png')",
 			"chat-tile-dark": "url('/bg-dark.png')",
-		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};
+export default config;
